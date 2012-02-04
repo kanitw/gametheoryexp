@@ -1,0 +1,10 @@
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2012-02-03 20:10:47 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQA8kz3Z6l-Li6anU-zWrSirJckHTEaGy6s-otB7wn-QmAZvx4BebsJzQYF7kOlZqG-xzfGW22rVZjrD8dyXBtWVgTOEKSmsW_dxN6wGG99XCGGMB7y3xstJJEig4h4pV6lKD--9tmIjXuZ3gwtwYhpI8uZO0qDrsdSl8vLRPK4XasRe1ZdoX32oYX37O9O1IOo" for 127.0.0.1 at 2012-02-03 20:11:04 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQA8kz3Z6l-Li6anU-zWrSirJckHTEaGy6s-otB7wn-QmAZvx4BebsJzQYF7kOlZqG-xzfGW22rVZjrD8dyXBtWVgTOEKSmsW_dxN6wGG99XCGGMB7y3xstJJEig4h4pV6lKD--9tmIjXuZ3gwtwYhpI8uZO0qDrsdSl8vLRPK4XasRe1ZdoX32oYX37O9O1IOo", "provider"=>"facebook"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 70ms (Views: 68.3ms | ActiveRecord: 0.0ms)
