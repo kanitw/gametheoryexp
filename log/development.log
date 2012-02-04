@@ -8,3 +8,484 @@ Processing by SessionsController#create as HTML
   Parameters: {"code"=>"AQA8kz3Z6l-Li6anU-zWrSirJckHTEaGy6s-otB7wn-QmAZvx4BebsJzQYF7kOlZqG-xzfGW22rVZjrD8dyXBtWVgTOEKSmsW_dxN6wGG99XCGGMB7y3xstJJEig4h4pV6lKD--9tmIjXuZ3gwtwYhpI8uZO0qDrsdSl8vLRPK4XasRe1ZdoX32oYX37O9O1IOo", "provider"=>"facebook"}
   Rendered text template (0.0ms)
 Completed 200 OK in 70ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+Mysql2::Error: CREATE command denied to user 'expAdmin'@'localhost' for table 'schema_migrations': CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (38.2ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+Mysql2::Error: INDEX command denied to user 'expAdmin'@'localhost' for table 'schema_migrations': CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+  [1m[35m (14.4ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120204041229')[0m
+Migrating to CreateAuthorizations (20120204041238)
+  [1m[35m (12.1ms)[0m  CREATE TABLE `authorizations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `provider` varchar(255), `uid` varchar(255), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120204041238')[0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+
+
+Started GET "/auth/facebook/callback?code=AQA8kz3Z6l-Li6anU-zWrSirJckHTEaGy6s-otB7wn-QmAZvx4BebsJzQYF7kOlZqG-xzfGW22rVZjrD8dyXBtWVgTOEKSmsW_dxN6wGG99XCGGMB7y3xstJJEig4h4pV6lKD--9tmIjXuZ3gwtwYhpI8uZO0qDrsdSl8vLRPK4XasRe1ZdoX32oYX37O9O1IOo" for 127.0.0.1 at 2012-02-03 20:40:57 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQA8kz3Z6l-Li6anU-zWrSirJckHTEaGy6s-otB7wn-QmAZvx4BebsJzQYF7kOlZqG-xzfGW22rVZjrD8dyXBtWVgTOEKSmsW_dxN6wGG99XCGGMB7y3xstJJEig4h4pV6lKD--9tmIjXuZ3gwtwYhpI8uZO0qDrsdSl8vLRPK4XasRe1ZdoX32oYX37O9O1IOo", "provider"=>"facebook"}
+Completed 500 Internal Server Error in 105ms
+
+ActiveRecord::StatementInvalid (Could not find table 'authorizations'):
+  app/controllers/sessions_controller.rb:8:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.9ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.1ms)
+
+
+Started GET "/auth/facebook/callback?code=AQA8kz3Z6l-Li6anU-zWrSirJckHTEaGy6s-otB7wn-QmAZvx4BebsJzQYF7kOlZqG-xzfGW22rVZjrD8dyXBtWVgTOEKSmsW_dxN6wGG99XCGGMB7y3xstJJEig4h4pV6lKD--9tmIjXuZ3gwtwYhpI8uZO0qDrsdSl8vLRPK4XasRe1ZdoX32oYX37O9O1IOo" for 127.0.0.1 at 2012-02-03 20:44:22 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQA8kz3Z6l-Li6anU-zWrSirJckHTEaGy6s-otB7wn-QmAZvx4BebsJzQYF7kOlZqG-xzfGW22rVZjrD8dyXBtWVgTOEKSmsW_dxN6wGG99XCGGMB7y3xstJJEig4h4pV6lKD--9tmIjXuZ3gwtwYhpI8uZO0qDrsdSl8vLRPK4XasRe1ZdoX32oYX37O9O1IOo", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.5ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+Completed 500 Internal Server Error in 116ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:12:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.8ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.6ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2012-02-03 20:44:30 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQDfV5BvPtybau_EdGA5Uduw_kxZJ8EOiweaEpSCqXOhNs46B1NF93DU40TAXWp1hf6FbWQBOKy--yI7c581B7KHD3wBvhGmdCdasfWbMNQTYWNCFLOrCedmkOaH7tmzGtvVyp3AxT_Tr1Gab_YKEL0qu0id5JXiXhvNfnM1ei_SIXX30PPbpO_tfrqZwRMy8mQ" for 127.0.0.1 at 2012-02-03 20:44:30 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQDfV5BvPtybau_EdGA5Uduw_kxZJ8EOiweaEpSCqXOhNs46B1NF93DU40TAXWp1hf6FbWQBOKy--yI7c581B7KHD3wBvhGmdCdasfWbMNQTYWNCFLOrCedmkOaH7tmzGtvVyp3AxT_Tr1Gab_YKEL0qu0id5JXiXhvNfnM1ei_SIXX30PPbpO_tfrqZwRMy8mQ", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:12:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/auth/facebook/" for 127.0.0.1 at 2012-02-03 20:45:04 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQBLvGFqoPaZ8e1SkvCsL8CqqK5HdYHO5ffFozP9Ci41_hf2qfr0VHa79IlKj3kKlqxD-8eJWW3li1seL-2EM_nYc5t8YPpdoFmrI2cLEM3ywJbS029X-GFuReTYzIZ0SC1lTGB_3etVeSNYBxxLA8636Yb74Exu8ZV5t2grIz8GweVXxNMnMUJ-1QHJM3kTo9I" for 127.0.0.1 at 2012-02-03 20:45:04 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBLvGFqoPaZ8e1SkvCsL8CqqK5HdYHO5ffFozP9Ci41_hf2qfr0VHa79IlKj3kKlqxD-8eJWW3li1seL-2EM_nYc5t8YPpdoFmrI2cLEM3ywJbS029X-GFuReTYzIZ0SC1lTGB_3etVeSNYBxxLA8636Yb74Exu8ZV5t2grIz8GweVXxNMnMUJ-1QHJM3kTo9I", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.4ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:12:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2012-02-03 20:45:57 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQBlLkdbgLjSG0bG7DVBseMKbHH2aAQc7l46JkFa0IRUBEXL-SgxmK1cg5yUe01Y2F-Q3iQIHYbaImRbR1UoGBQStTMtGhZm6_i6sKsoWEa940-jRevoOobqjdhfHWR2tGl27IV2VnrRvAf4274m19QuqXn_Hqp9jsHQn8SPOtX_rJ3JYTEIhcGLFnr12oB_NLM" for 127.0.0.1 at 2012-02-03 20:45:57 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBlLkdbgLjSG0bG7DVBseMKbHH2aAQc7l46JkFa0IRUBEXL-SgxmK1cg5yUe01Y2F-Q3iQIHYbaImRbR1UoGBQStTMtGhZm6_i6sKsoWEa940-jRevoOobqjdhfHWR2tGl27IV2VnrRvAf4274m19QuqXn_Hqp9jsHQn8SPOtX_rJ3JYTEIhcGLFnr12oB_NLM", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:12:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/auth/facebook/" for 127.0.0.1 at 2012-02-03 20:46:39 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:46:39 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:47:15 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.3ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+Completed 500 Internal Server Error in 14ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:12:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:48:09 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  Rendered text template (0.0ms)
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+Completed 500 Internal Server Error in 50ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:13:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.1ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.9ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:48:11 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  Rendered text template (0.0ms)
+  [1m[36mAuthorization Load (0.3ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:13:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:48:19 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:48:41 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+Completed 500 Internal Server Error in 14ms
+
+NoMethodError (undefined method `[]' for nil:NilClass):
+  app/controllers/sessions_controller.rb:12:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:49:19 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:49:40 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:52:30 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO `users` (`created_at`, `email`, `name`, `updated_at`) VALUES ('2012-02-04 04:52:30', 'ccwei@stanford.edu', 'Chih-Chiang Wei', '2012-02-04 04:52:30')[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `authorizations` (`created_at`, `provider`, `uid`, `updated_at`, `user_id`) VALUES ('2012-02-04 04:52:30', 'facebook', '100000278151450', '2012-02-04 04:52:30', 1)
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 138ms (Views: 0.8ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/auth/facebook/callback?code=AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0" for 127.0.0.1 at 2012-02-03 20:52:32 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBIHPRHm6urhU56lBZWTE_KxFjPw9lY5JJVczZV0C5kbVcy2nW01joopx0TV1JO1eEBHmW64VFN72qtWX-CNxtsbmsgZDNPAHGVrQiz3mOO0lFfCf67eyuc3DCbp0ey0VzEXhad2cxUyfMK-LS0EeBbKgW58_4pu98rKzwwBCBE2YE4ZXnYjN-ucN7ijxkJx_0", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 21ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2012-02-03 20:57:15 -0800
+Processing by SessionsController#destroy as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-02-03 20:57:18 -0800
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Compiled sessions.css  (48ms)  (pid 24984)
+Compiled application.css  (58ms)  (pid 24984)
+Compiled jquery.js  (2ms)  (pid 24984)
+Compiled jquery_ujs.js  (0ms)  (pid 24984)
+Compiled sessions.js  (236ms)  (pid 24984)
+Compiled application.js  (303ms)  (pid 24984)
+Completed 200 OK in 411ms (Views: 410.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-02-03 20:57:19 -0800
+Served asset /sessions.css - 200 OK (34ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-03 20:57:19 -0800
+Served asset /application.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-03 20:57:19 -0800
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-03 20:57:19 -0800
+Served asset /jquery_ujs.js - 200 OK (3ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-02-03 20:57:19 -0800
+Served asset /sessions.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-03 20:57:19 -0800
+Served asset /application.js - 200 OK (9ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2012-02-03 20:57:21 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQBThvifakOPN1pMlsctRNCAs2wHfopWblHcDcC3Wg4WSFvhLntV_DQASKYHUwykFrYgAcIY_ksSCz7MROqqaxVzhqL5bndlhVjtXsF4rYANwIj4RN94CUATafdfYTaBn2f_a4f9NeTte_gVkQt38a4kOaevBiAgpe2cGzB8bgpOf8oo239tQ5h7sWEVTJGPAsQ" for 127.0.0.1 at 2012-02-03 20:57:21 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQBThvifakOPN1pMlsctRNCAs2wHfopWblHcDcC3Wg4WSFvhLntV_DQASKYHUwykFrYgAcIY_ksSCz7MROqqaxVzhqL5bndlhVjtXsF4rYANwIj4RN94CUATafdfYTaBn2f_a4f9NeTte_gVkQt38a4kOaevBiAgpe2cGzB8bgpOf8oo239tQ5h7sWEVTJGPAsQ", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 32ms (Views: 0.5ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2012-02-03 20:57:32 -0800
+Processing by SessionsController#destroy as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-02-03 20:57:37 -0800
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-03 20:57:37 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2012-02-03 20:57:39 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQAw6-spvIvFWq3Sif2oAWMtPDK2fVyt5wZqVkAsEw33LDWFreBpx8Bls5MsZQy8G_QSEAoe1TjkGJFr0XtIlQ1D9l2-5G3EuITopPWYwt5LYQgEiNgvvZHUtcMCPBPbuvWaKIJJ8J_l3SAcL9VIwo3ZF4tC1vrHYdUXnAIYkhdV29RHReZk41aT24WWaEgLSlY" for 127.0.0.1 at 2012-02-03 20:57:39 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAw6-spvIvFWq3Sif2oAWMtPDK2fVyt5wZqVkAsEw33LDWFreBpx8Bls5MsZQy8G_QSEAoe1TjkGJFr0XtIlQ1D9l2-5G3EuITopPWYwt5LYQgEiNgvvZHUtcMCPBPbuvWaKIJJ8J_l3SAcL9VIwo3ZF4tC1vrHYdUXnAIYkhdV29RHReZk41aT24WWaEgLSlY", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.5ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAw6-spvIvFWq3Sif2oAWMtPDK2fVyt5wZqVkAsEw33LDWFreBpx8Bls5MsZQy8G_QSEAoe1TjkGJFr0XtIlQ1D9l2-5G3EuITopPWYwt5LYQgEiNgvvZHUtcMCPBPbuvWaKIJJ8J_l3SAcL9VIwo3ZF4tC1vrHYdUXnAIYkhdV29RHReZk41aT24WWaEgLSlY" for 127.0.0.1 at 2012-02-03 21:05:47 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAw6-spvIvFWq3Sif2oAWMtPDK2fVyt5wZqVkAsEw33LDWFreBpx8Bls5MsZQy8G_QSEAoe1TjkGJFr0XtIlQ1D9l2-5G3EuITopPWYwt5LYQgEiNgvvZHUtcMCPBPbuvWaKIJJ8J_l3SAcL9VIwo3ZF4tC1vrHYdUXnAIYkhdV29RHReZk41aT24WWaEgLSlY", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 31ms (Views: 0.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/auth/facebook/" for 127.0.0.1 at 2012-02-03 21:05:56 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQD9djsS4oGIswf_3I9I6a_GdQZ59fedYvkrZT8zTYRX_HxsG4au77RJ2hLxgFSpJTjWm_k-DPk6T3bTL14kRru3diJEt0IBe6WuB_iLb-a_O_v2FnjOjV-ZWDBchGn25vxbYHi99HoIJ6QwPOYye8XNq-BhYW49dq0__XnE7s2Bxy2LvIjaMVwNDFCB9I4NIjY" for 127.0.0.1 at 2012-02-03 21:05:56 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQD9djsS4oGIswf_3I9I6a_GdQZ59fedYvkrZT8zTYRX_HxsG4au77RJ2hLxgFSpJTjWm_k-DPk6T3bTL14kRru3diJEt0IBe6WuB_iLb-a_O_v2FnjOjV-ZWDBchGn25vxbYHi99HoIJ6QwPOYye8XNq-BhYW49dq0__XnE7s2Bxy2LvIjaMVwNDFCB9I4NIjY", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/auth/facebook/callback?code=AQD9djsS4oGIswf_3I9I6a_GdQZ59fedYvkrZT8zTYRX_HxsG4au77RJ2hLxgFSpJTjWm_k-DPk6T3bTL14kRru3diJEt0IBe6WuB_iLb-a_O_v2FnjOjV-ZWDBchGn25vxbYHi99HoIJ6QwPOYye8XNq-BhYW49dq0__XnE7s2Bxy2LvIjaMVwNDFCB9I4NIjY" for 127.0.0.1 at 2012-02-03 21:06:45 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQD9djsS4oGIswf_3I9I6a_GdQZ59fedYvkrZT8zTYRX_HxsG4au77RJ2hLxgFSpJTjWm_k-DPk6T3bTL14kRru3diJEt0IBe6WuB_iLb-a_O_v2FnjOjV-ZWDBchGn25vxbYHi99HoIJ6QwPOYye8XNq-BhYW49dq0__XnE7s2Bxy2LvIjaMVwNDFCB9I4NIjY", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2012-02-03 21:06:54 -0800
+Processing by SessionsController#destroy as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-02-03 21:06:58 -0800
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-03 21:06:58 -0800
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-02-03 21:06:58 -0800
+Served asset /sessions.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-03 21:06:58 -0800
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-02-03 21:06:58 -0800
+Served asset /sessions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-03 21:06:58 -0800
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2012-02-03 21:07:00 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQC2Ss0sineogot_Gn2sPZexo9FxH8sZvwo5Kzs_hY8MAVtyBANdp99rhC5gmABla-cd3DHj9X_BnuTQFJxHvw4GPQYd3lntMEvayylEEekPU5X__KRiNhqgdDRUlhUaAHTmThOjQuZ9Hz1BqvIfTfGisXJyg9wJTQwkGr5rexzLHdlGG_jys4d44P0bYLgbbnI" for 127.0.0.1 at 2012-02-03 21:07:00 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQC2Ss0sineogot_Gn2sPZexo9FxH8sZvwo5Kzs_hY8MAVtyBANdp99rhC5gmABla-cd3DHj9X_BnuTQFJxHvw4GPQYd3lntMEvayylEEekPU5X__KRiNhqgdDRUlhUaAHTmThOjQuZ9Hz1BqvIfTfGisXJyg9wJTQwkGr5rexzLHdlGG_jys4d44P0bYLgbbnI", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/auth/facebook/callback?code=AQC2Ss0sineogot_Gn2sPZexo9FxH8sZvwo5Kzs_hY8MAVtyBANdp99rhC5gmABla-cd3DHj9X_BnuTQFJxHvw4GPQYd3lntMEvayylEEekPU5X__KRiNhqgdDRUlhUaAHTmThOjQuZ9Hz1BqvIfTfGisXJyg9wJTQwkGr5rexzLHdlGG_jys4d44P0bYLgbbnI" for 127.0.0.1 at 2012-02-03 21:07:11 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQC2Ss0sineogot_Gn2sPZexo9FxH8sZvwo5Kzs_hY8MAVtyBANdp99rhC5gmABla-cd3DHj9X_BnuTQFJxHvw4GPQYd3lntMEvayylEEekPU5X__KRiNhqgdDRUlhUaAHTmThOjQuZ9Hz1BqvIfTfGisXJyg9wJTQwkGr5rexzLHdlGG_jys4d44P0bYLgbbnI", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 59ms (Views: 0.9ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/auth/facebook/" for 127.0.0.1 at 2012-02-03 21:07:31 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQASsR-DH05KfYHdTMcNWwhG8aFDZgMDv653yTL9b7UdpZKSiPowlnOXrLq8go3MflprQR7MJJq7_cko1BxKYjVdBqkWObeL7iWjNhDxKsmUgmJz-MPaz5nrGJo68wzZk_tgm1osdC-oeV__sYbvDYC0s301z074DAjGd2_4z0YNRqHK4O6M5GC1UkXIsrkPlRI" for 127.0.0.1 at 2012-02-03 21:07:31 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQASsR-DH05KfYHdTMcNWwhG8aFDZgMDv653yTL9b7UdpZKSiPowlnOXrLq8go3MflprQR7MJJq7_cko1BxKYjVdBqkWObeL7iWjNhDxKsmUgmJz-MPaz5nrGJo68wzZk_tgm1osdC-oeV__sYbvDYC0s301z074DAjGd2_4z0YNRqHK4O6M5GC1UkXIsrkPlRI", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/auth/facebook/callback?code=AQASsR-DH05KfYHdTMcNWwhG8aFDZgMDv653yTL9b7UdpZKSiPowlnOXrLq8go3MflprQR7MJJq7_cko1BxKYjVdBqkWObeL7iWjNhDxKsmUgmJz-MPaz5nrGJo68wzZk_tgm1osdC-oeV__sYbvDYC0s301z074DAjGd2_4z0YNRqHK4O6M5GC1UkXIsrkPlRI" for 127.0.0.1 at 2012-02-03 21:09:20 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQASsR-DH05KfYHdTMcNWwhG8aFDZgMDv653yTL9b7UdpZKSiPowlnOXrLq8go3MflprQR7MJJq7_cko1BxKYjVdBqkWObeL7iWjNhDxKsmUgmJz-MPaz5nrGJo68wzZk_tgm1osdC-oeV__sYbvDYC0s301z074DAjGd2_4z0YNRqHK4O6M5GC1UkXIsrkPlRI", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 31ms (Views: 0.8ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/auth/facebook/" for 127.0.0.1 at 2012-02-03 21:09:26 -0800
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:09:27 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.4ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:09:46 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 58ms
+
+TypeError (can't convert nil into String):
+  app/controllers/sessions_controller.rb:8:in `+'
+  app/controllers/sessions_controller.rb:8:in `create'
+
+
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/wei/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.4ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:10:51 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.2ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 15ms (Views: 1.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:11:06 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.3ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:11:13 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 16ms (Views: 0.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:11:18 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 15ms (Views: 1.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:11:27 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 19ms (Views: 1.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:11:40 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.3ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 18ms (Views: 0.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:12:08 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 20ms (Views: 0.9ms | ActiveRecord: 8.4ms)
