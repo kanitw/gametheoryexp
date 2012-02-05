@@ -10,11 +10,12 @@
 		Or
 		</p>
 
-		<%= form_for(@user) do |f| %>
+		<%#= form_for(@user) do |f| %>
 			<input name="username" placeholder="username" required />
 			<input type="password" name="password" placeholder="password" required />
 			<button type="submit">Login</button>
-		<% end %>
+		<%# end %>
+		<%= link_to "Sign Up", "/signup" %>
 
 
 	</div>
