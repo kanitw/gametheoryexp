@@ -489,3 +489,12 @@ Processing by SessionsController#create as HTML
   [1m[35mAuthorization Load (0.3ms)[0m  SELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1
   Rendered text template (0.0ms)
 Completed 200 OK in 20ms (Views: 0.9ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/auth/facebook/callback?code=AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I" for 127.0.0.1 at 2012-02-03 21:20:49 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAOpBZmOQTMwXIlbTSCPij8_No9rIyhuDUO_NxJzE0-gQUe-d_gNxss5wJQ5HZ9cbQ5jdg78cdOOsRRLtP3JvSQOEgnWQKd1EoOPBjKlq4UVE2E9_q83fa1S6kYkPrM5-P6XdZAsNm2zn1wGd6oqvEzAcy1N4rWLYxKl2SjTXEqil7Nbh2nSjHFS96AsMZFK9I", "provider"=>"facebook"}
+  [1m[36mAuthorization Load (0.2ms)[0m  [1mSELECT `authorizations`.* FROM `authorizations` WHERE `authorizations`.`provider` = 'facebook' AND `authorizations`.`uid` = '100000278151450' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 33ms (Views: 0.9ms | ActiveRecord: 8.1ms)
