@@ -1,4 +1,7 @@
 GameTheoryExp::Application.routes.draw do
+  
+  get "home/index"
+
   get "sessions/new"
   get "sessions/create"
   get "sessions/failure"
@@ -19,13 +22,15 @@ GameTheoryExp::Application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure'
   get '/logout', :to => 'sessions#destroy'
 
+  match '/signup',  :to => 'users#new'
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  
+  resources :users
 
   # Sample resource route with options:
   #   resources :products do
@@ -62,7 +67,7 @@ GameTheoryExp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
