@@ -3,11 +3,13 @@ GameTheoryExp::Application.routes.draw do
   get "home/index"
 
   get "sessions/new"
-
   get "sessions/create"
-
   get "sessions/failure"
-
+  
+  match "/game/send", :controller => "game", :action => "send_message"
+  match "/game/channel1", :controller => "game", :action => "channel1"
+  match "/game/channel2", :controller => "game", :action => "channel2"
+  match '/game',  :to => 'game#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

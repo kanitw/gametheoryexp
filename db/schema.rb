@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120205072953) do
+ActiveRecord::Schema.define(:version => 20120205072956) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -21,12 +21,26 @@ ActiveRecord::Schema.define(:version => 20120205072953) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "gameones", :force => true do |t|
+    t.integer  "user1"
+    t.integer  "user2"
+    t.float    "offer"
+    t.boolean  "accept"
+    t.float    "moneyontable"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "state"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
+
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "password"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "encrypted_password"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

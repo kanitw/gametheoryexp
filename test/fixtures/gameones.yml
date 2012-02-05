@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user1: 1
+  user2: 1
+  offer: 1.5
+  accept: false
+  moneyontable: 1.5
+
+two:
+  user1: 1
+  user2: 1
+  offer: 1.5
+  accept: false
+  moneyontable: 1.5
