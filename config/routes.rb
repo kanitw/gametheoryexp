@@ -1,4 +1,6 @@
 GameTheoryExp::Application.routes.draw do
+  get "home/index"
+
   get "sessions/new"
 
   get "sessions/create"

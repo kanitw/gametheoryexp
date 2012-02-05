@@ -552,3 +552,236 @@ Mysql2::Error (Access denied for user 'Admin'@'localhost' (using password: YES))
   Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (68.6ms)
   Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (26.9ms)
   Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (120.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-02-04 21:06:13 -0800
+
+Mysql2::Error (Access denied for user 'Admin'@'localhost' (using password: YES)):
+  mysql2 (0.3.11) lib/mysql2/client.rb:44:in `connect'
+  mysql2 (0.3.11) lib/mysql2/client.rb:44:in `initialize'
+  activerecord (3.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `new'
+  activerecord (3.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `mysql2_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:277:in `new_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:287:in `checkout_new_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:235:in `block (2 levels) in checkout'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:230:in `loop'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:230:in `block in checkout'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `checkout'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:95:in `connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:168:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:142:in `connection'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:67:in `rescue in call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:61:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__1222673900561949349__call__2763970241755360339__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-02-04 21:06:27 -0800
+
+Mysql2::Error (Access denied for user 'Admin'@'localhost' (using password: YES)):
+  mysql2 (0.3.11) lib/mysql2/client.rb:44:in `connect'
+  mysql2 (0.3.11) lib/mysql2/client.rb:44:in `initialize'
+  activerecord (3.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `new'
+  activerecord (3.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `mysql2_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:277:in `new_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:287:in `checkout_new_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:235:in `block (2 levels) in checkout'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:230:in `loop'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:230:in `block in checkout'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `checkout'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:95:in `connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:168:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:142:in `connection'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:67:in `rescue in call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:61:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__1222673900561949349__call__2763970241755360339__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-02-04 21:06:30 -0800
+
+Mysql2::Error (Access denied for user 'Admin'@'localhost' (using password: YES)):
+  mysql2 (0.3.11) lib/mysql2/client.rb:44:in `connect'
+  mysql2 (0.3.11) lib/mysql2/client.rb:44:in `initialize'
+  activerecord (3.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `new'
+  activerecord (3.2.1) lib/active_record/connection_adapters/mysql2_adapter.rb:16:in `mysql2_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:277:in `new_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:287:in `checkout_new_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:235:in `block (2 levels) in checkout'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:230:in `loop'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:230:in `block in checkout'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:229:in `checkout'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:95:in `connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:168:in `retrieve_connection'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_specification.rb:142:in `connection'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:67:in `rescue in call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:61:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__1222673900561949349__call__2763970241755360339__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/kanitw/.rvm/rubies/ruby-1.9.3-rc1/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.6ms)
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/kanitw/.rvm/gems/ruby-1.9.3-rc1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-02-04 21:06:57 -0800
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (5.3ms)
+Compiled app.css  (0ms)  (pid 76125)
+Compiled foundation.css  (1ms)  (pid 76125)
+Compiled ie.css  (0ms)  (pid 76125)
+Compiled sessions.css  (56ms)  (pid 76125)
+Compiled application.css  (176ms)  (pid 76125)
+Compiled jquery.js  (37ms)  (pid 76125)
+Compiled jquery_ujs.js  (0ms)  (pid 76125)
+Compiled app.js  (0ms)  (pid 76125)
+Compiled foundation.js  (0ms)  (pid 76125)
+Compiled jquery.min.js  (1ms)  (pid 76125)
+Compiled modernizr.foundation.js  (0ms)  (pid 76125)
+Compiled sessions.js  (603ms)  (pid 76125)
+Compiled application.js  (805ms)  (pid 76125)
+Completed 200 OK in 1138ms (Views: 1137.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /application.css - 200 OK (49ms)
+
+
+Started GET "/assets/app.css?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /app.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /jquery.js - 200 OK (5ms)
+
+
+Started GET "/assets/ie.css?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /ie.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /jquery_ujs.js - 200 OK (7ms)
+
+
+Started GET "/assets/foundation.css?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /foundation.css - 200 OK (2ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /sessions.css - 200 OK (2ms)
+
+
+Started GET "/assets/app.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /app.js - 200 OK (1ms)
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /foundation.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /jquery.min.js - 200 OK (54ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /application.js - 200 OK (23ms)
+
+
+Started GET "/assets/modernizr.foundation.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /modernizr.foundation.js - 200 OK (2ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2012-02-04 21:06:59 -0800
+Served asset /sessions.js - 200 OK (2ms)

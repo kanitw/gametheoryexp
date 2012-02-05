@@ -9,7 +9,7 @@ development:
   encoding: utf8
   database: GameTheoryExp
   pool: 5
-  username: Admin
+  username: admin
   password: exp
   socket: /tmp/mysql.sock
 
