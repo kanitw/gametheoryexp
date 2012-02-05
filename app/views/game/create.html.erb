@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Game Client</title>
+<%= javascript_include_tag 'jquery', 'application'%>
+
+  </head>
+<body>
+	<div id="mesg"></div>
+	
+<%= form_tag('/game/send', :id => 'chat_window', :remote => true) do %>
+	<%= text_field_tag 'msg_body', '', :size => 50 %>
+	<%= hidden_field_tag 'sender', 'channel1'%>
+	<%= submit_tag 'Send Message' %>
+<% end %>
+<body>
+</html>
