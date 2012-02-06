@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
+  #omniauth
+  has_many :authentications
+
   #below here are old code from old guide
 
   #attr_accessor :password

@@ -1,5 +1,7 @@
 GameTheoryExp::Application.routes.draw do
   
+  resource :authentications, :only => [:index, :create, :destroy]
+
   devise_for :users do
     get 'logout' => 'devise/sessions#destroy'
   end
@@ -14,23 +16,22 @@ GameTheoryExp::Application.routes.draw do
   match "/game/channel1", :controller => "game", :action => "channel1"
   match "/game/channel2", :controller => "game", :action => "channel2"
   match '/game',  :to => 'game#index'
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  
+
+  #get   '/login', :to => 'sessions#new', :as => :login
+  match '/auth/:provider/callback', :to => 'authentications#create'
+  match '/auth/failure', :to => 'sessions#failure'
+  #get '/logout', :to => 'sessions#destroy'
+
+
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  #get   '/login', :to => 'sessions#new', :as => :login
-  match '/auth/:provider/callback', :to => 'sessions#create'
-  match '/auth/failure', :to => 'sessions#failure'
-  #get '/logout', :to => 'sessions#destroy'
-
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-
-  
  
   # Sample resource route with options:
   #   resources :products do
@@ -65,11 +66,8 @@ GameTheoryExp::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
   root :to => 'home#index'
 
-  # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
