@@ -1,6 +1,6 @@
 GameTheoryExp::Application.routes.draw do
   
-  resource :authentications, :only => [:index, :create, :destroy]
+  resource :authentication, :only => [:index, :create, :destroy]
 
   devise_for :users do
     get 'logout' => 'devise/sessions#destroy'

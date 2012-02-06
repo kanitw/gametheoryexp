@@ -5,13 +5,13 @@ class AuthenticationsController < ApplicationController
 
 	def create
 	  auth = request.env["omniauth.auth"]
-	  current_user.authorizations.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
-	  flash[:notice] = "Authentication successful."
+	  out = current_user.authentications.find_or_create_by_provider_and_uid(auth['provider'], auth['uid'])
+	  flash[:notice] = "Authentication successful."+out['provider']
 	  redirect_to root_url
 	end
 
 	def destroy
-	  @authentication = current_user.authorizations.find(params[:id])
+	  @authentication = current_user.authentications.find(params[:id])
 	  @authentication.destroy
 	  flash[:notice] = "Successfully destroyed authentication."
 	  redirect_to root_url
