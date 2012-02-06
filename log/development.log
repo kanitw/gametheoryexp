@@ -6287,3 +6287,174 @@ Migrating to AddEmailUniquenessIndex (20120205072953)
 Migrating to AddStateToGameone (20120205072956)
   [1m[35m (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
 >>>>>>> 46b8b01cefd6a8b2c8a456e39327d9069fea36a9
+  [1m[36m (24.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+  [1m[35m (822.5ms)[0m  ALTER TABLE `users` ADD `password` varchar(255)
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20120205060531')[0m
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+  [1m[35m (2.6ms)[0m  ALTER TABLE `users` ADD `encrypted_password` varchar(255)
+Mysql2::Error: Duplicate column name 'encrypted_password': ALTER TABLE `users` ADD `encrypted_password` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+  [1m[35m (0.4ms)[0m  ALTER TABLE `users` ADD `encrypted_password` varchar(255)
+Mysql2::Error: Duplicate column name 'encrypted_password': ALTER TABLE `users` ADD `encrypted_password` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+  [1m[35m (1.4ms)[0m  ALTER TABLE `users` ADD `encrypted_password` varchar(255)
+Mysql2::Error: Duplicate column name 'encrypted_password': ALTER TABLE `users` ADD `encrypted_password` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+  [1m[35m (191.2ms)[0m  ALTER TABLE `users` DROP `password`
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE `users` DROP `string`[0m
+Mysql2::Error: Can't DROP 'string'; check that column/key exists: ALTER TABLE `users` DROP `string`
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+  [1m[35m (1.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120205073745')
+Migrating to AddDeviseToUsers (20120206070824)
+  [1m[36m (149.4ms)[0m  [1mALTER TABLE `users` ADD `reset_password_token` varchar(255)[0m
+  [1m[35m (339.2ms)[0m  ALTER TABLE `users` ADD `reset_password_sent_at` datetime
+  [1m[36m (175.4ms)[0m  [1mALTER TABLE `users` ADD `remember_created_at` datetime[0m
+  [1m[35m (132.7ms)[0m  ALTER TABLE `users` ADD `sign_in_count` int(11) DEFAULT 0
+  [1m[36m (177.8ms)[0m  [1mALTER TABLE `users` ADD `current_sign_in_at` datetime[0m
+  [1m[35m (199.1ms)[0m  ALTER TABLE `users` ADD `last_sign_in_at` datetime
+  [1m[36m (224.4ms)[0m  [1mALTER TABLE `users` ADD `current_sign_in_ip` varchar(255)[0m
+  [1m[35m (211.1ms)[0m  ALTER TABLE `users` ADD `last_sign_in_ip` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+Migrating to AddDeviseToUsers (20120206070824)
+  [1m[35m (0.9ms)[0m  ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+Mysql2::Error: Duplicate column name 'reset_password_token': ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+Migrating to AddDeviseToUsers (20120206070824)
+  [1m[35m (1.1ms)[0m  ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+Mysql2::Error: Duplicate column name 'reset_password_token': ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+  [1m[36m (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+Migrating to AddDeviseToUsers (20120206070824)
+  [1m[35m (0.5ms)[0m  ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+Mysql2::Error: Duplicate column name 'reset_password_token': ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[35m (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (421.8ms)[0m  [1mDROP DATABASE IF EXISTS `GameTheoryExp`[0m
+  [1m[35m (47.2ms)[0m  CREATE DATABASE `GameTheoryExp` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (89.7ms)[0m  [1mCREATE TABLE `authorizations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `provider` varchar(255), `uid` varchar(255), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (208.9ms)[0m  CREATE TABLE `gameones` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user1` int(11), `user2` int(11), `offer` float, `accept` tinyint(1), `moneyontable` float, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `state` int(11)) ENGINE=InnoDB
+  [1m[36m (160.1ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `encrypted_password` varchar(255), `salt` varchar(255), `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (211.9ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)
+  [1m[36m (193.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (275.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (31.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120205090651')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120204041229')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120204041238')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120205060531')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120205072411')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120205072953')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120205072956')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120205073745')[0m
+  [1m[35m (0.9ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+Migrating to AddDeviseToUsers (20120206070824)
+  [1m[35m (0.5ms)[0m  ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+Mysql2::Error: Duplicate column name 'reset_password_token': ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+  [1m[36m (46.8ms)[0m  [1mDROP DATABASE IF EXISTS `GameTheoryExp`[0m
+  [1m[35m (0.8ms)[0m  CREATE DATABASE `GameTheoryExp` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (87.6ms)[0m  [1mCREATE TABLE `authorizations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `provider` varchar(255), `uid` varchar(255), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (261.5ms)[0m  CREATE TABLE `gameones` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user1` int(11), `user2` int(11), `offer` float, `accept` tinyint(1), `moneyontable` float, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `state` int(11)) ENGINE=InnoDB
+  [1m[36m (245.3ms)[0m  [1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `encrypted_password` varchar(255), `salt` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (196.3ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (162.1ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120205090651')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120204041229')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120204041238')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120205060531')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120205072411')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120205072953')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20120205072956')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20120205073745')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to CreateUsers (20120204041229)
+Migrating to CreateAuthorizations (20120204041238)
+Migrating to AddPasswordToUsers (20120205060531)
+Migrating to CreateGameones (20120205072411)
+Migrating to AddEmailUniquenessIndex (20120205072953)
+Migrating to AddStateToGameone (20120205072956)
+Migrating to UpdatePasswordInUsers (20120205073745)
+Migrating to AddDeviseToUsers (20120206070824)
+  [1m[35m (135.8ms)[0m  ALTER TABLE `users` ADD `reset_password_token` varchar(255)
+  [1m[36m (237.5ms)[0m  [1mALTER TABLE `users` ADD `reset_password_sent_at` datetime[0m
+  [1m[35m (187.5ms)[0m  ALTER TABLE `users` ADD `remember_created_at` datetime
+  [1m[36m (264.3ms)[0m  [1mALTER TABLE `users` ADD `sign_in_count` int(11) DEFAULT 0[0m
+  [1m[35m (235.4ms)[0m  ALTER TABLE `users` ADD `current_sign_in_at` datetime
+  [1m[36m (211.5ms)[0m  [1mALTER TABLE `users` ADD `last_sign_in_at` datetime[0m
+  [1m[35m (147.2ms)[0m  ALTER TABLE `users` ADD `current_sign_in_ip` varchar(255)
+  [1m[36m (115.8ms)[0m  [1mALTER TABLE `users` ADD `last_sign_in_ip` varchar(255)[0m
+  [1m[35m (130.2ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)
+  [1m[36m (163.2ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20120206070824')
+  [1m[36m (0.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
