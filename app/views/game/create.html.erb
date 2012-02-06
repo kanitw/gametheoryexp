@@ -1,16 +1,85 @@
 <html>
 <head>
     <title>Game Client</title>
-<%= javascript_include_tag 'jquery', 'application'%>
-
+	<script type="text/javascript">
+	$(document).ready(function(){
+		console.log("uid =" + uid);
+		if(uid === 1)
+			$("#mesg").append($("<li/>").append("Please Wait"));
+		else
+			$("#confirmstart").css("visibility", "visible");
+		}
+	);
+	</script>
   </head>
 <body>
 	<div id="mesg"></div>
+	<script src="http://localhost:8080/application.js" type="text/javascript" charset="utf-8"></script>
 	
-<%= form_tag('/game/send', :id => 'chat_window', :remote => true) do %>
-	<%= text_field_tag 'msg_body', '', :size => 50 %>
-	<%= hidden_field_tag 'sender', 'channel1'%>
-	<%= submit_tag 'Send Message' %>
-<% end %>
-<body>
+	<div style="visibility:hidden;" id="proposer">
+		Enter Offer: <input type="text" name="fname" id="offer" /><br />	
+		<%= button_to_function "Submit", "txt=$(\"#offer\").val();
+		                                 $.post(\"/game/propose\",{offer:txt, gameid:gameid});"%>
+	</div>
+	
+	<div style="visibility:hidden;" id="confirmstart">
+		Click to start game! 
+		<%= button_to_function "Start", "$.ajax({url: \"/game/start\"})" %>
+	</div>
+	
+	<div style="visibility:hidden;" id="makedecision">
+		<%= button_to_function "Accept", "$.post(\"/game/respond\", {decision:1, gameid:gameid, offer:offer})" %>
+		<%= button_to_function "Decline", "$.post(\"/game/respond\", {decision:0, gameid:gameid, offer:offer})" %>
+	</div>
+	<div id="servermsg"></div>
+	<div id="displaydecision"></div>
+	
+	<script type="text/javascript" charset="utf-8">
+	    var jug = new Juggernaut();
+		var WAIT = -1;
+		var CONNECT = 0;
+		var PROPOSED = 1;
+		var RESPONSED = 2;
+		var uid = <%= uid %>;
+		var gameid = <%= gameid %>;
+		var offer = -1;
+		
+		function displayStart(){
+			$("#mesg").append($("<li/>").append("GameStart"));
+			$("#proposer").css("visibility", "visible");
+		}
+		function displayMakeDecision(of){
+			$("#mesg").append($("<li/>").append("Make a decision"));
+			$("#servermsg").html("<p>The offer is " + of + "</p><p></choose to accept or reject></p>");
+			$("#makedecision").css("visibility", "visible");
+			offer = of;
+		}
+		function displayDecision(decision){
+			$("#mesg").append($("<li/>").append("Make a decision"));
+			$("#servermsg").html("<p>The decision is " + decision + "</p>");
+			console.log("Got decision = " + decision);
+		}
+		
+		function processData(data){
+			var myObject = JSON.parse(data);
+			console.log(myObject.receiver);
+			if( myObject.receiver === uid){
+				if(myObject.msg.state === CONNECT){
+					displayStart();
+				}else if(myObject.msg.state === PROPOSED){
+					console.log("Got offer" + myObject.msg.offer);
+					displayMakeDecision(myObject.msg.offer);
+				}
+				if(myObject.msg.state === RESPONSED){
+						displayDecision(myObject.msg.decision);
+				}
+			}
+		}
+
+	   jug.subscribe("/game/channel1_channel2", function(data){
+				processData(data);
+			}); 
+	</script>
+</body>
+
 </html>

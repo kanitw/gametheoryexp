@@ -6,10 +6,12 @@ GameTheoryExp::Application.routes.draw do
   get "sessions/create"
   get "sessions/failure"
   
-  match "/game/send", :controller => "game", :action => "send_message"
+  match "/game/start", :controller => "game", :action => "gamestart"
   match "/game/channel1", :controller => "game", :action => "channel1"
   match "/game/channel2", :controller => "game", :action => "channel2"
-  match '/game',  :to => 'game#index'
+  match "game/propose", :controller => "game", :action => "propose"
+   match "game/respond", :controller => "game", :action => "respond"
+  match '/game',  :to => 'game#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
