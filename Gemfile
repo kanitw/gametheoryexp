@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -26,6 +27,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'mysql2'
 gem 'juggernaut'
+
 
 group :development do
   gem 'rspec-rails', '2.6.1'
