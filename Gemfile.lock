@@ -64,7 +64,6 @@ GEM
     multi_json (1.0.4)
     multipart-post (1.1.4)
     mysql2 (0.3.11)
-    nokogiri (1.5.0)
     oauth2 (0.5.2)
       faraday (~> 0.7)
       multi_json (~> 1.0)
@@ -136,7 +135,6 @@ GEM
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
     webrat (0.7.1)
-      nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
 
