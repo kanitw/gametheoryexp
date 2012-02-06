@@ -1,6 +1,8 @@
 GameTheoryExp::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users do
+    get 'logout' => 'devise/sessions#destroy'
+  end
 
   get "home/index"
 
@@ -19,21 +21,17 @@ GameTheoryExp::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  get   '/login', :to => 'sessions#new', :as => :login
+  #get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
-  get '/logout', :to => 'sessions#destroy'
-
-  match '/signup',  :to => 'users#new'
-
+  #get '/logout', :to => 'sessions#destroy'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   
-  resources :users
-
+ 
   # Sample resource route with options:
   #   resources :products do
   #     member do
