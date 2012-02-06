@@ -16,14 +16,8 @@ GameTheoryExp::Application.routes.draw do
   match "/game/channel1", :controller => "game", :action => "channel1"
   match "/game/channel2", :controller => "game", :action => "channel2"
   match "game/propose", :controller => "game", :action => "propose"
-   match "game/respond", :controller => "game", :action => "respond"
+  match "game/respond", :controller => "game", :action => "respond"
   match '/game',  :to => 'game#create'
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
 
   #get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'authentications#create'
