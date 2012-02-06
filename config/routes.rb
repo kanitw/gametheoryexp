@@ -1,11 +1,11 @@
 GameTheoryExp::Application.routes.draw do
   
-  resource :authentication, :only => [:index, :create, :destroy]
-
-  devise_for :users do
+  devise_for :users, :controllers => {:registrations => 'registrations'} do
     get 'logout' => 'devise/sessions#destroy'
   end
 
+
+  resources :authentications
   get "home/index"
 
   get "sessions/new"

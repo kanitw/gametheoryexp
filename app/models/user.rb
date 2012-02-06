@@ -10,6 +10,15 @@ class User < ActiveRecord::Base
   #omniauth
   has_many :authentications
 
+  def apply_omniauth(omniauth)
+    self.email = omniauth['user_info']['email'] if email.blank?
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
+  end
+
   #below here are old code from old guide
 
   #attr_accessor :password
