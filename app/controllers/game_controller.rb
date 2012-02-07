@@ -1,6 +1,7 @@
 require "juggernaut"
 
 class GameController < ApplicationController
+  before_filter :authenticate_user!
   
   WAIT = -1
   CONNECTED = 0
